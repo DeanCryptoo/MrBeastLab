@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>MRBEAST LAB COIN — Hybrid Beast Protocol</title>
+<title>MRBEAST LAB COIN</title>
 <meta name="theme-color" content="#0b0e15">
 <link rel="icon" href="MrBeastLab.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,29 +11,34 @@
 <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Rajdhani:wght@500;700&family=Chakra+Petch:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0b0e15;--ink:#d7e3ff;--muted:#a3b6d6;--accent:#ff2bd6;--cyan:#5ae1ff;--panel:#111725;--ring-soft:drop-shadow(0 0 8px rgba(255,43,214,.35)) drop-shadow(0 0 14px rgba(90,225,255,.25));
+  --bg:#0b0e15;--ink:#d7e3ff;--muted:#a3b6d6;--accent:#ff2bd6;--cyan:#5ae1ff;--panel:#111725;
+  --ring-soft:drop-shadow(0 0 8px rgba(255,43,214,.35)) drop-shadow(0 0 14px rgba(90,225,255,.25));
 }
 *{box-sizing:border-box}html,body{height:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:"Chakra Petch",system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;overflow-x:hidden}
-.site-bg{position:fixed;inset:0;z-index:-1;pointer-events:none}
+
+/* Background (global) */
+.site-bg{position:fixed;inset:0;z-index:-2;pointer-events:none}
 .site-bg::before{content:"";position:absolute;inset:0;background:
   radial-gradient(1200px 900px at 10% -10%,#1b2240 0,transparent 60%),
   radial-gradient(1200px 900px at 110% -10%,#23122f 0,transparent 60%),
   linear-gradient(180deg,#0b1020 0,#0c0f18 50%,#0a0d14 100%)}
 .site-bg::after{content:"";position:absolute;inset:-40px;opacity:.06;background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400"><filter id="n"><feTurbulence baseFrequency=".85" numOctaves="2"/></filter><rect width="400" height="400" filter="url(%23n)"/></svg>');background-size:200px 200px}
+
 .container{width:min(1200px,94vw);margin-inline:auto}
 
 /* Header / Nav */
 header{position:fixed;inset-inline:0;top:0;z-index:30;backdrop-filter:saturate(140%) blur(8px);background:linear-gradient(180deg,rgba(13,18,31,.75) 0,rgba(13,18,31,0) 100%);border-bottom:1px solid #1b2234}
 nav{display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
 .brand{display:flex;align-items:center;gap:10px;font:800 16px "Russo One",sans-serif;letter-spacing:.6px;color:#fff;text-transform:uppercase}
-/* Spinning portal with dark inner core */
-.brand .portal{--s:36px;width:var(--s);height:var(--s);border-radius:50%;position:relative;background:conic-gradient(from 0deg,#ff89e9 0 20%,#7ef3ff 20% 40%,#b987ff 40% 60%,#ff2bd6 60% 80%,#7ef3ff 80% 100%);animation:spin 8s linear infinite;filter:var(--ring-soft)}
-.brand .portal::after{content:"";position:absolute;inset:5px;border-radius:50%;background:radial-gradient(circle at 50% 55%,#0b0911 0 40%,#0000 70%);box-shadow:inset 0 0 10px rgba(255,43,214,.5)}
+.brand .portal{--s:36px;width:var(--s);height:var(--s);border-radius:50%;position:relative;
+  background:conic-gradient(from 0deg,#ff89e9 0 20%,#7ef3ff 20% 40%,#b987ff 40% 60%,#ff2bd6 60% 80%,#7ef3ff 80% 100%);
+  animation:spin 8s linear infinite;filter:var(--ring-soft)}
+.brand .portal::after{content:"";position:absolute;inset:5px;border-radius:50%;
+  background:radial-gradient(circle at 50% 55%,#0b0911 0 40%,#0000 70%);box-shadow:inset 0 0 10px rgba(255,43,214,.5)}
 @keyframes spin{to{transform:rotate(1turn)}}
 .nav-links{display:flex;gap:18px;align-items:center}
 .nav-links a{color:#d7e6ff;text-decoration:none;font:700 14px "Rajdhani";opacity:.9;position:relative}
-/* hover underline glow */
 .nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:2px;background:linear-gradient(90deg,var(--cyan),var(--accent));transform:scaleX(0);transform-origin:0 50%;transition:transform .2s ease;filter:drop-shadow(0 0 6px rgba(90,225,255,.6))}
 .nav-links a:hover::after{transform:scaleX(1)}
 .cta{padding:10px 14px;border-radius:12px;background:#12192a;border:1px solid #293149;color:#fff;transition:transform .15s ease,box-shadow .2s}
@@ -43,41 +48,38 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:14px 2
 .burger span,.burger::before,.burger::after{content:"";display:block;height:2px;width:20px;background:#e1ecff;margin:3px auto;border-radius:2px}
 @media (max-width:900px){ .nav-links{display:none} .burger{display:block} .nav-open .nav-links{position:absolute;top:58px;right:12px;display:grid;gap:8px;background:#0d1320;padding:14px;border:1px solid #243050;border-radius:14px} }
 
-/* Hero */
-.hero{padding:168px 0 110px}
-.hero .grid{display:grid;gap:32px;grid-template-columns:1.1fr .9fr}
-@media (max-width:1000px){.hero .grid{grid-template-columns:1fr}}
-.h1{font-family:"Russo One",sans-serif;font-size:clamp(38px,6vw,86px);line-height:1.04;text-transform:uppercase;color:#fff;letter-spacing:1.5px;margin:0 0 .35em;
-/* dim glow ~15% */
-text-shadow:0 0 12px rgba(255,43,214,.28),0 0 22px rgba(90,225,255,.22)}
+/* HERO — video banner */
+.hero{position:relative;min-height:70vh;padding:160px 0 120px;display:grid;align-items:center}
+.hero .center{z-index:1;text-align:center}
+.h1{font-family:"Russo One",sans-serif;font-size:clamp(38px,6vw,86px);line-height:1.04;text-transform:uppercase;color:#fff;letter-spacing:1.5px;margin:.15em 0 .35em;
+  /* dimmed glow */
+  text-shadow:0 0 12px rgba(255,43,214,.28),0 0 22px rgba(90,225,255,.22)}
 .tag{display:inline-flex;gap:8px;align-items:center;margin-bottom:14px;padding:8px 12px;border-radius:999px;background:linear-gradient(90deg,#e3ff7a,#9af7ff);color:#111;font:700 14px "Rajdhani";box-shadow:0 0 20px rgba(153,255,198,.35) inset}
-.subtitle{color:#d1e0ff;max-width:54ch}
+.subtitle{color:#d1e0ff;max-width:62ch;margin-inline:auto}
 
-/* Hologram Pod */
-.pod{position:relative;aspect-ratio:1/1;border-radius:28px;background:#0c101a;border:1px solid #24344e;box-shadow:inset 0 0 0 1px #0006,0 10px 36px rgba(0,0,0,.55);overflow:hidden}
-.pod::after{content:"";position:absolute;inset:6px;border-radius:22px;border:1px solid #4e627f;box-shadow:inset 0 0 24px rgba(134,255,240,.25)}
-.pod-label{position:absolute;left:14px;bottom:14px;font:700 10px/1 "Rajdhani";letter-spacing:.28em;color:#9bb2da;opacity:.85;z-index:6}
-.pod-img{position:absolute;inset:14px;border-radius:18px;overflow:hidden}
-.pod-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:translateZ(0);transition:transform .25s ease}
-.pod-img::after{content:"";position:absolute;inset:-2px;border-radius:inherit;pointer-events:none;background:radial-gradient(220px 220px at var(--px,50%) var(--py,50%), rgba(90,225,255,.18), rgba(255,43,214,.14) 40%, transparent 60%);opacity:0;transition:opacity .2s ease}
-.pod-img:hover::after{opacity:1}
-.pod-img:hover img{transform:scale(1.02)}
-.glass-curvature{position:absolute;inset:0;pointer-events:none;mask-image:radial-gradient(160% 100% at 50% 50%,#000 62%,transparent 88%);-webkit-mask-image:radial-gradient(160% 100% at 50% 50%,#000 62%,transparent 88%)}
-.side-falloff{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.45),transparent 22%,transparent 78%,rgba(0,0,0,.45))}
-.center-band{position:absolute;left:50%;top:0;bottom:0;width:16%;transform:translateX(-50%);background:linear-gradient(90deg,transparent,rgba(255,255,255,.06),transparent);filter:blur(1.5px);mix-blend-mode:screen}
-.pod-cap{position:absolute;left:8%;right:8%;height:36px;border-radius:18px;mix-blend-mode:screen;filter:blur(.4px)}
-.pod-cap.top{top:10px;background:linear-gradient(180deg,rgba(140,240,255,.4),rgba(255,43,214,.28) 40%,transparent)}
-.pod-cap.bot{bottom:10px;background:linear-gradient(0deg,rgba(140,240,255,.4),rgba(255,43,214,.28) 40%,transparent)}
-.streaks{position:absolute;inset:0;background:repeating-linear-gradient(180deg,rgba(255,255,255,.05) 0 1px,transparent 1px 3px);opacity:.2;mix-blend-mode:overlay;animation:scan 8s linear infinite}
-@keyframes scan{0%{transform:translateY(-8%)}100%{transform:translateY(8%)}}
-.bubble{position:absolute;bottom:12%;width:6px;height:6px;border-radius:50%;background:radial-gradient(circle,#fff 0,rgba(255,255,255,.22) 55%,transparent 70%);opacity:.75;animation:rise 7s linear infinite}
-@keyframes rise{0%{transform:translateY(0);opacity:.12}100%{transform:translateY(-220px);opacity:0}}
-.pod-tilt{transition:transform .25s ease;will-change:transform}
+/* Video layer (stays in hero only) */
+.tube-wrap{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.tube-wrap video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  filter:brightness(.55) contrast(1.08) saturate(.95);
+  opacity:.38;transform:scale(1.02)}
+/* soft blend edges + top/bottom gradient so it melts into bg */
+.tube-wrap::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(120% 100% at 50% 0%,rgba(0,0,0,.55),transparent 40%),
+  radial-gradient(140% 120% at 50% 100%,rgba(0,0,0,.65),transparent 40%);
+  mix-blend-mode:multiply}
+.tube-wrap::after{content:"";position:absolute;inset:-6px;border-radius:8px;
+  background:radial-gradient(80% 60% at 50% 50%,transparent 60%,rgba(0,0,0,.35) 100%);
+  pointer-events:none}
+/* Respect reduced-motion */
+@media (prefers-reduced-motion:reduce){
+  .tube-wrap video{display:none}
+}
 
-/* Sections & Panels */
 .section{padding:90px 0}
 .section h2{margin:0 0 12px;color:#fff;font:700 28px "Russo One";text-transform:uppercase;letter-spacing:2px;text-shadow:0 0 14px rgba(255,43,214,.25),0 0 20px rgba(90,225,255,.2)}
 .lead{color:#d1e0ff;max-width:62ch}
+
+/* Panel */
 .panel{background:linear-gradient(180deg,#0f1420,#0a0e15);border:1px solid #1f2740;border-radius:22px;box-shadow:0 10px 34px rgba(0,0,0,.55);overflow:hidden}
 .panel .hd{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;background:linear-gradient(180deg,#121a2b,#0d1423);border-bottom:1px solid #1d2540}
 .panel .bd{padding:18px}
@@ -99,7 +101,7 @@ text-shadow:0 0 12px rgba(255,43,214,.28),0 0 22px rgba(90,225,255,.22)}
 .button:hover{transform:translateY(-1px)}
 .button.primary{background:linear-gradient(135deg,#281632,#0d1425 60%);border-color:#ff6fe6;box-shadow:0 0 16px rgba(255,43,214,.24)}
 
-/* Tokenomics Icons */
+/* Tokenomics icons */
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:20px}
 @media (max-width:900px){.stats{grid-template-columns:1fr}}
 .stat{position:relative;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center;background:radial-gradient(60% 80% at 50% 0%,#1c1d2a,#0d1220);border:1px solid #273050;border-radius:18px;padding:16px;transition:transform .15s, box-shadow .2s}
@@ -135,7 +137,7 @@ footer{padding:60px 0 100px;text-align:center;color:#a8b8d9}
 .socials{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin:16px 0}
 .socials a{border:1px solid #2a3355;background:#101626;padding:10px 14px;border-radius:12px;color:#e8f1ff}
 
-/* Glitch tweak (softer) */
+/* Glitch (soft) */
 .glitch{position:relative;display:inline-block}
 .glitch::before,.glitch::after{content:attr(data-text);position:absolute;inset:0;pointer-events:none}
 .glitch::before{transform:translate(1.5px,0);color:#7ef3ff;mix-blend-mode:screen;filter:drop-shadow(0 0 8px rgba(126,243,255,.40))}
@@ -146,7 +148,7 @@ footer{padding:60px 0 100px;text-align:center;color:#a8b8d9}
 @keyframes floaty{50%{transform:translateY(-10px)}}
 .reveal{opacity:0;transform:translateY(12px);transition:opacity .6s ease,transform .6s ease}
 .reveal.on{opacity:1;transform:none}
-@media (max-width:640px){.floaty{animation:none}.streaks{animation-duration:12s}.bubble{display:none}}
+@media (max-width:640px){.floaty{animation:none}}
 </style>
 </head>
 <body>
@@ -166,43 +168,27 @@ footer{padding:60px 0 100px;text-align:center;color:#a8b8d9}
 </header>
 
 <main>
-  <section class="hero container">
-    <div class="grid">
-      <div>
-        <div class="tag">⚡ HYBRID BEAST PROTOCOL</div>
-        <h1 class="h1 glitch" data-text="THE EXPERIMENT">THE EXPERIMENT</h1>
-        <p class="subtitle">An over-the-top memecoin forged in a neon lab. Built for vibes, raids and ridiculousness. Strap in — the portal is opening.</p>
-        <div style="height:16px"></div>
-        <a class="cta" href="#telemetry">↓ Live token telemetry</a>
-      </div>
-      <!-- Hologram pod -->
-      <div class="pod floaty" aria-hidden="true">
-        <div class="pod-img pod-tilt" id="pod">
-          <img src="MrBeastLab.png" alt="Hybrid Beast"/>
-          <div class="side-falloff glass-curvature"></div>
-          <div class="center-band glass-curvature"></div>
-          <div class="streaks glass-curvature"></div>
-          <div class="pod-cap top"></div>
-          <div class="pod-cap bot"></div>
-          <div class="bubble" style="left:14%;animation-delay:.0s"></div>
-          <div class="bubble" style="left:28%;animation-delay:1.2s"></div>
-          <div class="bubble" style="left:56%;animation-delay:.7s"></div>
-          <div class="bubble" style="left:74%;animation-delay:1.8s"></div>
-        </div>
-        <div class="pod-label">HYBRID CORE</div>
-      </div>
+  <!-- HERO WITH VIDEO BANNER -->
+  <section class="hero">
+    <div class="tube-wrap" aria-hidden="true">
+      <video class="tube" src="Labtube.mp4" poster="MrBeastLab.png" autoplay muted loop playsinline preload="metadata"></video>
+    </div>
+    <div class="container center">
+      <h1 class="h1 glitch" data-text="THE EXPERIMENT">THE EXPERIMENT</h1>
+      <p class="subtitle">An over-the-top memecoin forged in a neon lab. Built for vibes, raids and ridiculousness. Strap in — the portal is opening.</p>
+      <div style="height:16px"></div>
+      <a class="cta" href="#telemetry">↓ Live token telemetry</a>
     </div>
   </section>
 
+  <!-- TELEMETRY -->
   <section id="telemetry" class="section">
     <div class="container panel reveal">
       <div class="hd"><strong style="letter-spacing:.3em;font:800 14px 'Rajdhani'">LIVE TOKEN TELEMETRY</strong><span style="color:#9ab0d3">DexScreener · <span id="updated">—</span></span></div>
       <div class="bd">
         <div class="chain-input">
           <label style="font:700 12px 'Rajdhani';letter-spacing:.2em;color:#a8b8d9">CHAIN</label>
-          <select id="chain" class="button" style="min-width:120px">
-            <option value="solana" selected>Solana</option><option value="ethereum">Ethereum</option><option value="bsc">BSC</option><option value="base">Base</option><option value="polygon">Polygon</option><option value="arbitrum">Arbitrum</option>
-          </select>
+          <select id="chain" class="button" style="min-width:120px"><option value="solana" selected>Solana</option><option value="ethereum">Ethereum</option><option value="bsc">BSC</option><option value="base">Base</option><option value="polygon">Polygon</option><option value="arbitrum">Arbitrum</option></select>
           <label style="font:700 12px 'Rajdhani';letter-spacing:.2em;color:#a8b8d9">TOKEN / MINT</label>
           <input id="mint" placeholder="Paste token address" value="13CDmqGgZfT5giVTBrayV6o88PkBCitVDQ4b8k3bonk" />
           <button id="load" class="button primary">Fetch</button>
@@ -221,6 +207,7 @@ footer{padding:60px 0 100px;text-align:center;color:#a8b8d9}
     </div>
   </section>
 
+  <!-- FORMULA -->
   <section id="tokenomics" class="section">
     <div class="container">
       <h2>THE FORMULA</h2>
@@ -242,6 +229,7 @@ footer{padding:60px 0 100px;text-align:center;color:#a8b8d9}
     </div>
   </section>
 
+  <!-- ROADMAP -->
   <section id="roadmap" class="section">
     <div class="container">
       <h2>THE EXPERIMENT</h2>
@@ -254,6 +242,7 @@ footer{padding:60px 0 100px;text-align:center;color:#a8b8d9}
     </div>
   </section>
 
+  <!-- TRAILER -->
   <section class="section">
     <div class="container panel reveal"><div class="hd"><strong style="letter-spacing:.3em;font:800 14px 'Rajdhani'">TRAILER FEED</strong><span style="color:#9ab0d3">Hype the portal</span></div>
       <div class="bd"><div style="position:relative;padding-top:56.25%"><iframe title="MrBeast Lab Trailer" style="position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:14px" src="https://www.youtube.com/embed/ES3x9FTiDN4" allowfullscreen></iframe></div></div>
@@ -274,41 +263,19 @@ footer{padding:60px 0 100px;text-align:center;color:#a8b8d9}
 
 <script>
 // Mobile menu
-const burger=document.getElementById('burger');burger?.addEventListener('click',()=>document.body.classList.toggle('nav-open'));
+document.getElementById('burger')?.addEventListener('click',()=>document.body.classList.toggle('nav-open'));
 
 // Reveal on scroll
 const io=new IntersectionObserver(es=>{es.forEach(e=>e.isIntersecting&&e.target.classList.add('on'))},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-// Parallax tilt only for pointer devices (pod)
-const pod=document.getElementById('pod');
-if(matchMedia('(pointer:fine)').matches){
-  pod?.addEventListener('pointermove',e=>{
-    const r=pod.getBoundingClientRect();
-    const x=(e.clientX-r.left)/r.width-.5;
-    const y=(e.clientY-r.top)/r.height-.5;
-    pod.style.setProperty('--px',(e.clientX-r.left)+'px');
-    pod.style.setProperty('--py',(e.clientY-r.top)+'px');
-    pod.style.transform=`rotateX(${y*5}deg) rotateY(${-x*5}deg)`;
-  });
-  pod?.addEventListener('pointerleave',()=>pod.style.transform='');
-}
-
 // Interactive tilt + hotspot glow (cards + stats + metrics)
-function bindTilt(el){
-  if(!el) return; let raf=null;
-  const onMove=e=>{
-    const r=el.getBoundingClientRect();
-    const x=(e.clientX-r.left)/r.width-.5;
-    const y=(e.clientY-r.top)/r.height-.5;
-    el.style.setProperty('--mx', (e.clientX-r.left)+'px');
-    el.style.setProperty('--my', (e.clientY-r.top)+'px');
-    cancelAnimationFrame(raf);
-    raf=requestAnimationFrame(()=>{el.style.transform=`perspective(700px) rotateX(${y*-8}deg) rotateY(${x*8}deg)`});
-  };
-  const onLeave=()=>{el.style.transform='perspective(700px) rotateX(0) rotateY(0)';};
-  el.addEventListener('mousemove',onMove);
-  el.addEventListener('mouseleave',onLeave);
+function bindTilt(el){if(!el) return;let raf=null;
+  const onMove=e=>{const r=el.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5;const y=(e.clientY-r.top)/r.height-.5;
+    el.style.setProperty('--mx',(e.clientX-r.left)+'px');el.style.setProperty('--my',(e.clientY-r.top)+'px');
+    cancelAnimationFrame(raf);raf=requestAnimationFrame(()=>{el.style.transform=`perspective(700px) rotateX(${y*-8}deg) rotateY(${x*8}deg)`})};
+  const onLeave=()=>{el.style.transform='perspective(700px) rotateX(0) rotateY(0)'};
+  el.addEventListener('mousemove',onMove);el.addEventListener('mouseleave',onLeave);
 }
 [...document.querySelectorAll('[data-tilt]')].forEach(bindTilt);
 
@@ -316,39 +283,25 @@ function bindTilt(el){
 const $=s=>document.querySelector(s);
 const fmtUSD=n=>(n||n===0)?(n>=1e9?'$'+(n/1e9).toFixed(2)+'B':n>=1e6?'$'+(n/1e6).toFixed(2)+'M':n>=1e3?'$'+(n/1e3).toFixed(2)+'K':'$'+(+n).toLocaleString()):'—';
 const pct=v=>(v||v===0)?(v>0?'+':'')+Number(v).toFixed(2)+'%':'—';
-
 async function fetchDex(){
-  const chain=$('#chain')?.value?.trim();
-  const mint=$('#mint')?.value?.trim();
-  if(!mint) return;
+  const chain=$('#chain')?.value?.trim(); const mint=$('#mint')?.value?.trim(); if(!mint) return;
   const url=`https://api.dexscreener.com/token-pairs/v1/${encodeURIComponent(chain)}/${encodeURIComponent(mint)}`;
-  const res=await fetch(url);
-  if(!res.ok) throw new Error('DexScreener error');
-  const pairs=await res.json();
-  const best=(pairs||[]).sort((a,b)=>(b?.liquidity?.usd||0)-(a?.liquidity?.usd||0))[0];
-  if(!best) throw new Error('No pools found');
-
+  const res=await fetch(url); if(!res.ok) throw new Error('DexScreener error');
+  const pairs=await res.json(); const best=(pairs||[]).sort((a,b)=>(b?.liquidity?.usd||0)-(a?.liquidity?.usd||0))[0]; if(!best) throw new Error('No pools found');
   const P=v=>v==null?'—':v;
   $('#price').textContent=best.priceUsd?('$'+Number(best.priceUsd).toFixed(8)).replace(/0+$/,'').replace(/\.$/,''):'—';
   $('#priceChange').textContent='24h: '+pct((best.priceChange&&(best.priceChange.h24??best.priceChange['h24']))??null);
   $('#liquidity').textContent=P(fmtUSD(best?.liquidity?.usd));
   $('#vol24').textContent=P(fmtUSD(best?.volume?.h24??best?.volume?.['h24']));
-  const buys=best?.txns?.h24?.buys??best?.txns?.['h24']?.buys;
-  const sells=best?.txns?.h24?.sells??best?.txns?.['h24']?.sells;
+  const buys=best?.txns?.h24?.buys??best?.txns?.['h24']?.buys; const sells=best?.txns?.h24?.sells??best?.txns?.['h24']?.sells;
   $('#txns').textContent=`Buys/Sells ${buys??'—'}/${sells??'—'}`;
   $('#fdv').textContent=P(fmtUSD(best?.fdv));
   $('#mcap').textContent=P(fmtUSD(best?.marketCap??best?.fdv));
-
   const L=$('#links'); L.innerHTML='';
   const link=(href,label)=>{const a=document.createElement('a');a.href=href;a.target='_blank';a.className='button';a.textContent=label;L.appendChild(a)};
   if(best?.url) link(best.url,'Open in DexScreener');
   if(best?.info?.websites?.[0]?.url) link(best.info.websites[0].url,'Website');
-  (best?.info?.socials||[]).forEach(s=>{
-    if(s.platform&&s.handle){
-      const map={twitter:'https://twitter.com/',x:'https://x.com/',telegram:'https://t.me/'};
-      const base=map[s.platform.toLowerCase()]||'';
-      link(base?base+s.handle.replace(/^@/,''):'#',s.platform+(s.handle?': '+s.handle:''))}
-  });
+  (best?.info?.socials||[]).forEach(s=>{if(s.platform&&s.handle){const map={twitter:'https://twitter.com/',x:'https://x.com/',telegram:'https://t.me/'};const base=map[s.platform.toLowerCase()]||'';link(base?base+s.handle.replace(/^@/,''):'#',s.platform+(s.handle?': '+s.handle:''))}});
   $('#updated') && ($('#updated').textContent=new Date().toLocaleTimeString());
 }
 try{
